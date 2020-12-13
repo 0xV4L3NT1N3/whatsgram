@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:Whatsgram/home.dart';
+import 'package:Whatsgram/calls.dart';
+import 'package:Whatsgram/profile.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(Whatsgram());
+}
+
+class Whatsgram extends StatefulWidget {
+  @override
+  _WhatsgramState createState() => _WhatsgramState();
+}
+
+class _WhatsgramState extends State<Whatsgram> {
+  @override
+  int currentIndex = 0;
+  PageController _pageController = PageController();
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Whatsgram',
       theme: ThemeData(
@@ -11,7 +27,7 @@ void main() {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            '',
+            'Whatsgram',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 33,
@@ -36,38 +52,14 @@ void main() {
           ],
           backgroundColor: Colors.white,
         ),
-        body: Stack(
-          children: [
-            Container(
-              height: 100,
-              color: Colors.blue,
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(12.0),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: Colors.brown.shade800,
-                          child: Text('AH'),
-                        ),
-                      ),
-                      Text(
-                        'Close Contacts',
-                        style: TextStyle(fontSize: 12),
-                      )
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Center(child: Text('Hello World')),
-          ],
-        ),
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          currentIndex: currentIndex,
+          onTap: (value) {
+            currentIndex = value;
+            _pageController.jumpToPage(value);
+          },
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
@@ -84,7 +76,20 @@ void main() {
           ],
           selectedItemColor: Colors.black,
         ),
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          children: [
+            Home(),
+            Calls(),
+            Profile(),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
