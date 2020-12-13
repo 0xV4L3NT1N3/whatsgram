@@ -42,13 +42,6 @@ class _WhatsgramState extends State<Whatsgram> {
                 color: Colors.black,
               ),
             ),
-            IconButton(
-              onPressed: null,
-              icon: Icon(
-                Icons.more_vert_rounded,
-                color: Colors.black,
-              ),
-            ),
           ],
           backgroundColor: Colors.white,
         ),
