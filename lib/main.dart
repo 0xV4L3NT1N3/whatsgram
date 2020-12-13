@@ -43,11 +43,15 @@ void main() {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
-              label: 'Home',
+              label: 'Chat',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.call),
-              label: 'Business',
+              label: 'Call',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_pin),
+              label: 'Profile',
             ),
           ],
           selectedItemColor: Colors.black,
