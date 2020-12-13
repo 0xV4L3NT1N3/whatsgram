@@ -11,7 +11,7 @@ void main() {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Whatsgram',
+            '',
             style: TextStyle(
                 color: Colors.black,
                 fontSize: 33,
@@ -36,7 +36,35 @@ void main() {
           ],
           backgroundColor: Colors.white,
         ),
-        body: Center(child: Text('Hello World')),
+        body: Stack(
+          children: [
+            Container(
+              height: 100,
+              color: Colors.blue,
+              child: Row(
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(12.0),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: Colors.brown.shade800,
+                          child: Text('AH'),
+                        ),
+                      ),
+                      Text(
+                        'Close Contacts',
+                        style: TextStyle(fontSize: 12),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Center(child: Text('Hello World')),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
