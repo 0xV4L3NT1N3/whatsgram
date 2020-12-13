@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'profile.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
+void main() => runApp(App());
+
+class App extends StatefulWidget {
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Whatsgram',
       theme: ThemeData(
@@ -36,23 +45,29 @@ void main() {
           ],
           backgroundColor: Colors.white,
         ),
-        body: Center(child: Text('Hello World')),
+        body: tabs[_currentIndex],
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          currentIndex: _currentIndex,
+          onTap: onButtonTapped,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.chat),
-              label: 'Home',
+              label: 'Chat',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.call),
-              label: 'Business',
+              label: 'Calls',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_pin),
+              label: 'Profile',
             ),
           ],
           selectedItemColor: Colors.black,
         ),
       ),
-    ),
-  );
-}
+    );
+  }
+
