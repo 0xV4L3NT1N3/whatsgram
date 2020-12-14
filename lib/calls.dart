@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Calls extends StatefulWidget {
   @override
@@ -6,8 +6,40 @@ class Calls extends StatefulWidget {
 }
 
 class _CallsState extends State<Calls> {
+  List<String> items = [
+    "longlonglonglongevenlongertext",
+    "simpson",
+    "and",
+    "friends",
+    "with",
+    "beer",
+    "buddies"
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Container(child: Center(child: Text('Call Page')));
+    return Expanded(
+      child: ListView.builder(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text(
+                    'Xi JinPing',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('3 minutes ago'),
+                  trailing: Icon(Icons.call),
+                ),
+                Divider(
+                  indent: 70,
+                  height: 5,
+                )
+              ],
+            );
+          }),
+    );
   }
 }
