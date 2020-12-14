@@ -42,8 +42,28 @@ class _WhatsgramState extends State<Whatsgram> {
                 color: Colors.black,
               ),
             ),
+            IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.more_vert,
+                color: Colors.black,
+              ),
+            ),
           ],
           backgroundColor: Colors.white,
+        ),
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: (value) {
+            setState(() {
+              currentIndex = value;
+            });
+          },
+          children: [
+            Home(),
+            Calls(),
+            Profile(),
+          ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
@@ -68,19 +88,6 @@ class _WhatsgramState extends State<Whatsgram> {
             ),
           ],
           selectedItemColor: Colors.black,
-        ),
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: (value) {
-            setState(() {
-              currentIndex = value;
-            });
-          },
-          children: [
-            Home(),
-            Calls(),
-            Profile(),
-          ],
         ),
       ),
     );

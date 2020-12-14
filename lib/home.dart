@@ -19,13 +19,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
         Container(
           height: 100,
-          color: Colors.blue,
+          color: Colors.grey[50],
           child: Row(
             children: [
+              //Close Contacts stories
               Expanded(
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
@@ -36,10 +37,19 @@ class _HomeState extends State<Home> {
                           Padding(
                             padding: EdgeInsets.only(
                                 top: 10, left: 10, right: 10, bottom: 5),
+                            //Layering Circle Avatars to achieve the gradient bordered stories
                             child: CircleAvatar(
                               radius: 35,
-                              backgroundColor: Colors.brown.shade800,
-                              child: Text(items[2]),
+                              backgroundColor: Colors.green,
+                              child: CircleAvatar(
+                                radius: 33,
+                                backgroundColor: Colors.grey[50],
+                                child: CircleAvatar(
+                                  radius: 31,
+                                  backgroundColor: Colors.brown.shade800,
+                                  child: Text(items[2]),
+                                ),
+                              ),
                             ),
                           ),
                           Container(
@@ -59,7 +69,27 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        Center(child: Text('Hello World')),
+
+        //Chat containers
+        Expanded(
+          child: ListView.builder(
+              itemCount: items.length,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.person),
+                      title: Text('Xi JinPing'),
+                      subtitle: Text('Should we try a different vaccine'),
+                    ),
+                    Divider(
+                      indent: 70,
+                      height: 5,
+                    )
+                  ],
+                );
+              }),
+        ),
       ],
     );
   }
