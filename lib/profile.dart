@@ -11,11 +11,24 @@ class _CallsState extends State<Profile> {
     return Column(
       children: [
         //Profile picture
-        Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: CircleAvatar(
-            radius: 80,
-          ),
+        Stack(
+          children: [
+            Positioned(
+                top: 110,
+                right: 80,
+                child: FloatingActionButton(
+                  backgroundColor: Colors.black54,
+                  elevation: 0,
+                  mini: true,
+                  child: Icon(Icons.camera_alt_rounded),
+                )),
+            Center(
+              child: CircleAvatar(
+                radius: 80,
+                backgroundImage: AssetImage('images/Profile.JPG'),
+              ),
+            ),
+          ],
         ),
         //Preferences
         Column(
@@ -23,10 +36,10 @@ class _CallsState extends State<Profile> {
             ListTile(
               leading: Icon(Icons.person),
               title: Text(
-                'Joe',
+                'Name',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('3 minutes ago'),
+              subtitle: Text('Joe'),
               trailing: Icon(Icons.edit),
             ),
             Divider(
@@ -52,7 +65,7 @@ class _CallsState extends State<Profile> {
                 'Phone',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text('3 minutes ago'),
+              subtitle: Text('+60 17269 0420'),
             ),
             Divider(
               indent: 70,
