@@ -11,24 +11,27 @@ class _CallsState extends State<Profile> {
     return Column(
       children: [
         //Profile picture
-        Stack(
-          children: [
-            Positioned(
-                top: 110,
-                right: 80,
+        Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Stack(
+            children: [
+              Center(
+                child: CircleAvatar(
+                  radius: 80,
+                  backgroundImage: AssetImage('images/Profile.JPG'),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 110, left: 200.0),
                 child: FloatingActionButton(
-                  backgroundColor: Colors.black54,
+                  backgroundColor: Colors.black,
                   elevation: 0,
                   mini: true,
                   child: Icon(Icons.camera_alt_rounded),
-                )),
-            Center(
-              child: CircleAvatar(
-                radius: 80,
-                backgroundImage: AssetImage('images/Profile.JPG'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         //Preferences
         Column(
