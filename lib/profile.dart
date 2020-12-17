@@ -27,6 +27,7 @@ class _CallsState extends State<Profile> {
                   backgroundColor: Colors.black,
                   elevation: 0,
                   mini: true,
+                  onPressed: () {},
                   child: Icon(Icons.camera_alt_rounded),
                 ),
               ),

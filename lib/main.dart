@@ -21,11 +21,10 @@ class _WhatsgramState extends State<Whatsgram> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Whatsgram',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
       home: Scaffold(
         appBar: AppBar(
+          elevation: 0,
           title: Text(
             'Whatsgram',
             style: TextStyle(
@@ -50,7 +49,7 @@ class _WhatsgramState extends State<Whatsgram> {
               ),
             ),
           ],
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey[50],
         ),
         body: PageView(
           controller: _pageController,

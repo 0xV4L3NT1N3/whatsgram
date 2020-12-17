@@ -66,6 +66,38 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 10, left: 10, right: 10, bottom: 5),
+                    //Layering Circle Avatars to achieve the gradient bordered stories
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Colors.green,
+                      child: CircleAvatar(
+                        radius: 33,
+                        backgroundColor: Colors.grey[50],
+                        child: CircleAvatar(
+                          radius: 31,
+                          backgroundColor: Colors.brown.shade800,
+                          child: Text(items[2]),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 80,
+                    child: Center(
+                      child: Text(
+                        'Close Contacts',
+                        style: TextStyle(fontSize: 11),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),
@@ -78,12 +110,32 @@ class _HomeState extends State<Home> {
                 return Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text('Xi JinPing'),
+                      leading: SizedBox(
+                        height: 60,
+                        width: 60,
+                        child: CircleAvatar(
+                          radius: 50,
+                          backgroundImage: AssetImage('images/chatphoto.png'),
+                        ),
+                      ),
+                      title: Text(
+                        'Eilie Billish',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       subtitle: Text('Should we try a different vaccine'),
+                      trailing: Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                            color: Colors.green, shape: BoxShape.circle),
+                        child: Center(
+                            child: Text('12',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 10))),
+                      ),
                     ),
                     Divider(
-                      indent: 70,
+                      indent: 90,
                       height: 5,
                     )
                   ],

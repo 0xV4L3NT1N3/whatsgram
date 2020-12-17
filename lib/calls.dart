@@ -25,7 +25,14 @@ class _CallsState extends State<Calls> {
             return Column(
               children: [
                 ListTile(
-                  leading: Icon(Icons.person),
+                  leading: SizedBox(
+                    height: 60,
+                    width: 60,
+                    child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('images/chatphoto.png'),
+                    ),
+                  ),
                   title: Text(
                     'Xi JinPing',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -34,7 +41,7 @@ class _CallsState extends State<Calls> {
                   trailing: Icon(Icons.call),
                 ),
                 Divider(
-                  indent: 70,
+                  indent: 90,
                   height: 5,
                 )
               ],
