@@ -37,7 +37,18 @@ class _CallsState extends State<Calls> {
                     'Xi JinPing',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  subtitle: Text('3 minutes ago'),
+                  subtitle: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Icons.call_made_rounded,
+                          size: 18,
+                        ),
+                      ),
+                      Text('3 minutes ago'),
+                    ],
+                  ),
                   trailing: Icon(Icons.call),
                 ),
                 Divider(

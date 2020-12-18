@@ -114,24 +114,41 @@ class _HomeState extends State<Home> {
                         height: 60,
                         width: 60,
                         child: CircleAvatar(
-                          radius: 50,
+                          radius: 60,
                           backgroundImage: AssetImage('images/chatphoto.png'),
                         ),
                       ),
-                      title: Text(
-                        'Eilie Billish',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                      title: Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          'Eilie Billish',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
-                      subtitle: Text('Should we try a different vaccine'),
-                      trailing: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            color: Colors.green, shape: BoxShape.circle),
-                        child: Center(
-                            child: Text('12',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 10))),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.only(top: 2.0, bottom: 8.0),
+                        child: Text('Should we try a different vaccine'),
+                      ),
+                      trailing: Column(
+                        children: [
+                          Text(
+                            '12:23 am',
+                            style: TextStyle(fontSize: 11, color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                                color: Colors.green, shape: BoxShape.circle),
+                            child: Center(
+                                child: Text('12',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 10))),
+                          ),
+                        ],
                       ),
                     ),
                     Divider(
