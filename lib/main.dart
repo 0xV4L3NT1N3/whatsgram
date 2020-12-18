@@ -13,10 +13,11 @@ class Whatsgram extends StatefulWidget {
 }
 
 class _WhatsgramState extends State<Whatsgram> {
-  @override
+  var appBarIcon;
   int currentIndex = 0;
   PageController _pageController = PageController();
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -37,7 +38,7 @@ class _WhatsgramState extends State<Whatsgram> {
             IconButton(
               onPressed: null,
               icon: Icon(
-                Icons.search,
+                appBarIcon,
                 color: Colors.black,
               ),
             ),
@@ -56,6 +57,24 @@ class _WhatsgramState extends State<Whatsgram> {
           onPageChanged: (value) {
             setState(() {
               currentIndex = value;
+
+              //changing AppBar dynamically on different pages
+              switch (currentIndex) {
+                case 0:
+                  {
+                    appBarIcon = Icons.search;
+                  }
+                  break;
+                case 1:
+                  {
+                    appBarIcon = Icons.add_call;
+                  }
+                  break;
+                case 2:
+                  {
+                    appBarIcon = null;
+                  }
+              }
             });
           },
           children: [

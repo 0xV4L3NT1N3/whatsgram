@@ -25,6 +25,7 @@ class _CallsState extends State<Calls> {
             return Column(
               children: [
                 ListTile(
+                  // Profile image
                   leading: SizedBox(
                     height: 60,
                     width: 60,
@@ -33,10 +34,12 @@ class _CallsState extends State<Calls> {
                       backgroundImage: AssetImage('images/chatphoto.png'),
                     ),
                   ),
+                  // Contact name
                   title: Text(
                     'Xi JinPing',
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
+                  // Last called time
                   subtitle: Row(
                     children: [
                       Padding(
