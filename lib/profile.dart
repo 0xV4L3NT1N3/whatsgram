@@ -18,7 +18,7 @@ class _CallsState extends State<Profile> {
               Center(
                 child: CircleAvatar(
                   radius: 80,
-                  backgroundImage: AssetImage('images/Profile.JPG'),
+                  backgroundImage: AssetImage('images/profile.JPG'),
                 ),
               ),
               Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Home extends StatefulWidget {
   @override
@@ -6,15 +7,37 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  //close contacts list
-  List<String> items = [
-    "longlonglonglongevenlongertext",
-    "simpson",
-    "and",
-    "friends",
-    "with",
-    "beer",
-    "buddies"
+  // close contacts list
+  List<String> contacts = [
+    "Eilie Billish",
+    "Zark Muckberg",
+    "Kan Joum",
+    "Sevin Kystrom",
+    "Yang Zhiming",
+    "Woni Tatson",
+    "Cack Jonte"
+  ];
+
+  // image locations
+  List<String> images = [
+    "images/billie.png",
+    "images/mark.jpg",
+    "images/jan.jpg",
+    "images/kevin.jpg",
+    "images/zhang.jpg",
+    "images/toni.jpg",
+    "images/jack.jpg",
+  ];
+
+  // chat text
+  List<String> chat = [
+    "I'm the bad guy",
+    "Should we buy TikTok ?",
+    "I shouldn't have sold",
+    "Alls well that ends well",
+    "I'm not sure what his intentions are",
+    "Now i beg to see you dance just one more time",
+    "Link is in the description",
   ];
 
   @override
@@ -29,8 +52,9 @@ class _HomeState extends State<Home> {
               //Close Contacts stories
               Expanded(
                 child: ListView.builder(
+                    reverse: true,
                     scrollDirection: Axis.horizontal,
-                    itemCount: items.length,
+                    itemCount: contacts.length,
                     itemBuilder: (context, index) {
                       return Column(
                         children: [
@@ -46,17 +70,16 @@ class _HomeState extends State<Home> {
                                 backgroundColor: Colors.grey[50],
                                 child: CircleAvatar(
                                   radius: 31,
-                                  backgroundColor: Colors.brown.shade800,
-                                  child: Text(items[2]),
+                                  backgroundImage: AssetImage(images[index]),
                                 ),
                               ),
                             ),
                           ),
                           Container(
-                            width: 70,
+                            width: 80,
                             child: Center(
                               child: Text(
-                                items[4],
+                                contacts[index],
                                 style: TextStyle(fontSize: 11),
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -66,38 +89,6 @@ class _HomeState extends State<Home> {
                       );
                     }),
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: 10, left: 10, right: 10, bottom: 5),
-                    //Layering Circle Avatars to achieve the gradient bordered stories
-                    child: CircleAvatar(
-                      radius: 35,
-                      backgroundColor: Colors.green,
-                      child: CircleAvatar(
-                        radius: 33,
-                        backgroundColor: Colors.grey[50],
-                        child: CircleAvatar(
-                          radius: 31,
-                          backgroundColor: Colors.brown.shade800,
-                          child: Text(items[2]),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 80,
-                    child: Center(
-                      child: Text(
-                        'Close Contacts',
-                        style: TextStyle(fontSize: 11),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  )
-                ],
-              ),
             ],
           ),
         ),
@@ -105,7 +96,7 @@ class _HomeState extends State<Home> {
         //Chat containers
         Expanded(
           child: ListView.builder(
-              itemCount: items.length,
+              itemCount: contacts.length,
               itemBuilder: (context, index) {
                 return Column(
                   children: [
@@ -115,19 +106,19 @@ class _HomeState extends State<Home> {
                         width: 60,
                         child: CircleAvatar(
                           radius: 60,
-                          backgroundImage: AssetImage('images/chatphoto.png'),
+                          backgroundImage: AssetImage(images[index]),
                         ),
                       ),
                       title: Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
-                          'Eilie Billish',
+                          contacts[index],
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                       subtitle: Padding(
                         padding: const EdgeInsets.only(top: 2.0, bottom: 8.0),
-                        child: Text('Should we try a different vaccine'),
+                        child: Text(chat[index]),
                       ),
                       trailing: Column(
                         children: [
@@ -144,7 +135,8 @@ class _HomeState extends State<Home> {
                             decoration: BoxDecoration(
                                 color: Colors.green, shape: BoxShape.circle),
                             child: Center(
-                                child: Text('12',
+                                child: Text(
+                                    (Random().nextInt(6) + 1).toString(),
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 10))),
                           ),

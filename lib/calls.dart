@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class Calls extends StatefulWidget {
   @override
@@ -6,21 +7,33 @@ class Calls extends StatefulWidget {
 }
 
 class _CallsState extends State<Calls> {
-  List<String> items = [
-    "longlonglonglongevenlongertext",
-    "simpson",
-    "and",
-    "friends",
-    "with",
-    "beer",
-    "buddies"
+  //close contacts list
+  List<String> contacts = [
+    "Eilie Billish",
+    "Zark Muckberg",
+    "Kan Joum",
+    "Sevin Kystrom",
+    "Yang Zhiming",
+    "Woni Tatson",
+    "Cack Jonte"
+  ];
+
+  //image locations
+  List<String> images = [
+    "images/billie.png",
+    "images/mark.jpg",
+    "images/jan.jpg",
+    "images/kevin.jpg",
+    "images/zhang.jpg",
+    "images/toni.jpg",
+    "images/jack.jpg",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-          itemCount: items.length,
+          itemCount: contacts.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -31,12 +44,12 @@ class _CallsState extends State<Calls> {
                     width: 60,
                     child: CircleAvatar(
                       radius: 50,
-                      backgroundImage: AssetImage('images/chatphoto.png'),
+                      backgroundImage: AssetImage(images[index]),
                     ),
                   ),
                   // Contact name
                   title: Text(
-                    'Xi JinPing',
+                    contacts[index],
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   // Last called time
@@ -49,7 +62,7 @@ class _CallsState extends State<Calls> {
                           size: 18,
                         ),
                       ),
-                      Text('3 minutes ago'),
+                      Text(Random().nextInt(10).toString() + " minutes ago"),
                     ],
                   ),
                   trailing: Icon(Icons.call),
