@@ -62,7 +62,8 @@ class _CallsState extends State<Calls> {
                           size: 18,
                         ),
                       ),
-                      Text(Random().nextInt(10).toString() + " minutes ago"),
+                      Text((Random().nextInt(10) + 1).toString() +
+                          " minutes ago"),
                     ],
                   ),
                   trailing: Icon(Icons.call),
