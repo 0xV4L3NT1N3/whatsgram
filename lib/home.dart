@@ -49,6 +49,43 @@ class _HomeState extends State<Home> {
           color: Colors.grey[50],
           child: Row(
             children: [
+              Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        top: 10, left: 10, right: 10, bottom: 5),
+                    //Layering Circle Avatars to achieve the gradient bordered stories
+                    child: CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Colors.grey,
+                      child: CircleAvatar(
+                        radius: 33,
+                        backgroundColor: Colors.grey[50],
+                        child: CircleAvatar(
+                          radius: 31,
+                          child: Icon(
+                            Icons.group_add_outlined,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          backgroundColor: Colors.grey,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 90,
+                    child: Center(
+                      child: Text(
+                        'Pinned Contacts',
+                        style: TextStyle(fontSize: 11),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+
               //Close Contacts stories
               Expanded(
                 child: ListView.builder(
