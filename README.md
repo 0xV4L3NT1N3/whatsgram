@@ -17,7 +17,7 @@ A fun [Flutter](https://flutter.dev/) UI experiment to incorporate the core feat
 ### Getting Started
 1. Setup [Flutter](https://flutter.dev/) on your machine 
 2. Git clone 
-`$ git clone https://github.com/mdanics/fluttergram.git`
+`$ git clone https://github.com/V4L3NT1N3/Whatsgram.git`
 3. Run it on any code editor of your choice - no dependencies required
 
 ### Future Updates 
