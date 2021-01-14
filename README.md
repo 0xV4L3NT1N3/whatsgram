@@ -1,5 +1,5 @@
 # Whatsgram
-Whatsapp in the genre of Instagram
+Whatsapp in the genre of Instagram </br>
 A fun [Flutter](https://flutter.dev/) UI experiment to incorporate the core features and feel of Instagram to a standalone mobile messaging application.
 
 ### Screenshots 
